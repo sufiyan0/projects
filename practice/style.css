@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital@1&display=swap');
+
+:root{
+    --model-Duration: 1s;
+    --secondaryColor:#0c97b9;
+    --primaryColor:#3d5d63;
+}
+
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color:rgb(195, 227, 235);
+    margin: 0%;
+    transition: transform 1s ease;
+    
+}
+
+.show-nav{
+    transform: translateX(200px);
+}
+
+nav{
+    background-color: var(--primaryColor);
+    border-bottom: 2px solid rgba(200,200,200,0.2);
+    position: fixed;
+    color: white;
+    left: 0%;
+    top: 0;
+    width: 200px;
+    height: 100vh;
+    z-index: 100;
+    transform: translateX(-100%);
+}
+
+nav .img{
+    text-align: center;
+    margin-top: 10px;
+    border-bottom:none;
+    padding: 5px;
+    
+}
+
+nav ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+nav ul li{
+    border-bottom: 2px solid rgba(200,200,200,0.2);
+    padding: 30px;
+    margin: 0;
+}
+ nav ul li:first-of-type{
+    border-top: 2px solid rgba(200,200,200,0.2);
+
+ }
+
+ nav ul li a{
+     text-decoration: none;
+     color: white;
+     cursor: pointer;
+ }
+ nav ul li:hover{
+     text-decoration: underline;
+ }
+
+img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+
+}
+
+
+header{
+    background-color: var(--secondaryColor);
+    text-align: center;
+    position:relative ;
+    padding: 40px 15px;
+    margin: 0%;
+    border: 0vh;
+    color: white;
+}
+button{
+    
+    padding: 4px 6px;
+    color: var(--primaryColor);
+    background-color:rgba(0,0,0,0.01);
+    border-radius: 5px;
+    position: absolute;
+    cursor: pointer;
+    
+}
+
+
+
+.btn{
+    top: 20px;
+    left: 20px;
+    position: absolute;
+    
+}
+
+.main-con{
+margin-left: 20px auto;
+margin-right: 20px auto;
+   
+}
+
+footer{
+    background-color: var(--secondaryColor);
+    margin-top: 0%;
+    position:absolute;
+    width: 100%;
+    display:flexbox;
+    
+
+
+}
+footer ul{
+    list-style-type: none;
+    color: white;
+    display: flex;
+}
+footer ul li a{
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 20px;
+}
+footer ul li{
+    padding: 20px ;
+}
+
+.main-con{
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 100%;
+    width: 800px;
+}
+
+
+header ul{
+    color: white;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 15px 10px;
+    text-align: center;
+    background-color:var(--primaryColor);
+}
+header ul li a{
+    color: white;
+    padding: 20px;
+    margin-left: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: left;
+}
+header ul li:hover{
+    text-decoration: underline;
+    text-size-adjust: 20px;
+}
+.head-link li{
+    text-align: left;
+}
+

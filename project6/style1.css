@@ -20,6 +20,22 @@ body {
 body.show-nav{
     transform: translateX(200px);
 }
+/* .pro a {
+    list-style-type: none ;
+    color: black;
+    text-decoration: none; 
+    padding: 5px;
+}
+
+.content ul{
+    list-style-type: none;
+    text-decoration: none; 
+    padding: 10px;
+} 
+
+.pro li{
+    padding: 3px;
+} */
 
 
 nav .logo img{
