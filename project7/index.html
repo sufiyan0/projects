@@ -5,10 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/4eb7f92696.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
     <title>project 7 word Game</title>
 </head>
 <body>
-    <h1>hangman</h1>
+    <h1>Hangman</h1>
+    <p>Find the hidden word guess a letter by entering it on your keyboard  </p>
+     <div class="game-container">
+         <svg height="280" width="280" class="figure-content">
+            <!-- this is hangman stand -->
+            <line x1="60" y1="20" x2="150" y2="20" />
+            <line x1="150" y1="20" x2="150" y2="50" />
+            <line x1="60" y1="20" x2="60" y2="250" />
+            <line x1="30" y1="250" x2="90" y2="250" />
+            <!-- this is hangman body -->
+            <!-- this is head -->
+            <circle cx="150" cy="70" r="20"  class="hangman-part"/>
+            <!-- this is body -->
+            <line x1="150" y1="90" x2="150" y2="170" class="hangman-part" />
+            <!-- these are  hands -->
+            <line x1="150" y1="105" x2="110" y2="150" class="hangman-part" />
+            <line x1="150" y1="105" x2="190" y2="150" class="hangman-part" />
+            <!-- these are legs  -->
+            <line x1="150" y1="170" x2="105" y2="220" class="hangman-part" />
+            <line x1="150" y1="170" x2="185" y2="220" class="hangman-part"/>
+         </svg>
+         <!-- this is for incorrect words -->
+         <div class="incorrect-lettor-container">
+             <div id="incorrect-lettors"> </div>
+         </div>
+         <!-- this is for main word  -->
+         <div class="word" id="word"> </div>
+
+         <!-- this is the popup -->
+            <div class="popup-container" id="popup-container">
+                <div class="popup">
+                 <h2 class="final-massage" id="final-massage"></h2>
+                 <button id="play-btn">Play Again</button> 
+                </div>
+            </div>
+
+     </div>
+
+              <!-- notify that "tou already use this alphabet" -->
+              <div class="notification-container" id="notification-container">
+                <p>Sorry! You already guess this letter try another one.</p>
+            </div>
+
+            <script src="script.js" ></script>
 
 </body>
 </html>
