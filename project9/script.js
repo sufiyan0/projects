@@ -85,12 +85,21 @@ function addTransection(e) {
         alert('Please provide a valid reason and transection ammount')    
     } else{
         //Create an object
-        const transection = {
+        const transectioon = {
             id: creatrId(),
             reason: reason.value,
             amount: +amount.value
         }
-    }console.log(transection)
+        // Push the new transection in to the transection array
+        transection.push(transectioon); 
+        //Dispaly the new transection in to the DOM
+        displayTransection(transectioon);
+        // Update all Balance
+        updateBalance();
+        //Empty form fields
+        reason.value = '';
+        amount.value = '';
+    }
 }
 
 // Event listrners
