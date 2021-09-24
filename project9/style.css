@@ -141,7 +141,10 @@ input {
 
 
 .btn:hover{
-    color: crimson;
-    background-color: rgb(35, 35, 226);
+    color: black;
+    background-color: rgb(24, 24, 192);
     font-weight: bold;
+    font-size: 22px;
+    border-radius: 10px;
+
 }

@@ -45,7 +45,20 @@ function updateBalance() {
     const transectionAmmounts = transection.map( transection => transection.amount );
     // Calculate total balance value 
     const totalBalance = transectionAmmounts.reduce ( (acc, amount) => (acc += amount), 0 )
-    //Calculate total balance   
+        //Calculate total balance for credit
+        const creditBalance = transectionAmmounts .filter(amount => amount > 0)
+                                              .reduce((acc , amount) => (acc += amount), 0  ); 
+
+        //Calculate total balance for debit  
+        const debitBalance = transectionAmmounts .filter(amount => amount < 0)
+                                                 .reduce((acc , amount) => (acc += amount), 0  ); 
+
+
+        //Update value in DOM for all values
+        balance.innerHTML = `$${totalBalance}`;
+        moneyCerdit.innerHTML = `$${creditBalance}`;
+        moneyDebit.innerHTML = `$${debitBalance}`;
+
 }
 
 // Initilize Application
@@ -55,7 +68,34 @@ function init(){
     // Display all transection in DB in the DOM
     transection.forEach(displayTransection);
     updateBalance();
+};
+
+//function to create random id
+function creatrId() {
+    return Math.floor(Math.random() * 100000000000)
+};
+
+// function to Initialize history 
+function addTransection(e) {
+    e.preventDefault();
+
+    // check if form has empty data 
+    if (reason.value.trim() === '' || amount.value.trim() === '' ) {
+        //Display alery massage
+        alert('Please provide a valid reason and transection ammount')    
+    } else{
+        //Create an object
+        const transection = {
+            id: creatrId(),
+            reason: reason.value,
+            amount: +amount.value
+        }
+    }console.log(transection)
 }
+
+// Event listrners
+// 1. listen for form submit to add a transection
+form.addEventListener('submit',addTransection),
 
 // called the Initilize Application function
 init(); 
