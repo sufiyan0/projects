@@ -43,8 +43,9 @@ function displayTransection(transection){
 function updateBalance() {
     /// Create a new array 
     const transectionAmmounts = transection.map( transection => transection.amount );
-    console.log(transection);
-    console.log(transectionAmmounts);
+    // Calculate total balance value 
+    const totalBalance = transectionAmmounts.reduce ( (acc, amount) => (acc += amount), 0 )
+    //Calculate total balance   
 }
 
 // Initilize Application
@@ -57,5 +58,5 @@ function init(){
 }
 
 // called the Initilize Application function
-init();
+init(); 
 

@@ -5,7 +5,7 @@
 }
 
 body{
-    background-color: rgb(223, 162, 162);
+    background-color: rgb(90, 107, 107);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -118,7 +118,7 @@ label {
 }
 
 input {
-    border: 1px solid red;
+    border: 2px solid black;
     border-radius: 5px;
     display: block;
     font-size: 18px;
@@ -129,11 +129,19 @@ input {
 .btn {
     background-color: rgb(51, 51, 236);
     color: white;
-    border-radius: 5px;
+    border-radius:  5px;
+    /* border: 2px solid blue; */
     width: 100%;
     margin: 10px 0 30px;
     padding: 10px;
     cursor: pointer;
     font-size: 18px;
 
+}
+
+
+.btn:hover{
+    color: crimson;
+    background-color: rgb(35, 35, 226);
+    font-weight: bold;
 }
