@@ -10,28 +10,28 @@ const amount = document.getElementById('amount')
 
 // Array of transection
 const Transection = [
-    {id: 1, reason: 'salary' , amount: 5000},
-    {id: 2, reason: 'Bill' , amount: -30},
-    {id: 3, reason: 'Dinner' , amount: -20},
-    {id: 4, reason: 'Lunch' , amount: -50},
+    // {id: 1, reason: 'salary' , amount: 5000},
+    // {id: 2, reason: 'Bill' , amount: -30},
+    // {id: 3, reason: 'Dinner' , amount: -20},
+    // {id: 4, reason: 'Lunch' , amount: -50},
     
 ];
 
 // get transection data form storage
-let transection = Transection;
+let transections = Transection;
 
 // Functiom to display transection in DOM 
-function displayTransection(transection){
+function displayTransection(transections){
     //  calculate if transection is  Credit of Debit 
-    const type = transection.amount > 0 ? '+' : '-';
+    const type = transections.amount > 0 ? '+' : '-';
     // create a list item for the transection
     const transectionLI = document.createElement('li');
     // determin class based on transection type.. positive or negative
-    transectionLI.classList.add(transection.amount > 0 ? 'credit' : 'debit' );
+    transectionLI.classList.add(transections.amount > 0 ? 'credit' : 'debit' );
     // Assign the inner HTML for the transection li
     transectionLI.innerHTML = `
-        ${transection.reason} <span>${transection.amount}</span>
-        <button class="delete-btn">X</button>
+       ${transections.reason} <span>${transections.amount}</span>
+        <button class="delete-btn" onclick = "deleteData(${transections.id})" >X</button>
     `;
 
     //Add the li in the  DOM under the transection history list
@@ -39,10 +39,12 @@ function displayTransection(transection){
 } 
 
 
+
+
 // Function to update all balances
 function updateBalance() {
     /// Create a new array 
-    const transectionAmmounts = transection.map( transection => transection.amount );
+    const transectionAmmounts = transections.map( transections => transections.amount );
     // Calculate total balance value 
     const totalBalance = transectionAmmounts.reduce ( (acc, amount) => (acc += amount), 0 )
         //Calculate total balance for credit
@@ -60,13 +62,13 @@ function updateBalance() {
         moneyDebit.innerHTML = `$${debitBalance}`;
 
 }
-
+ 
 // Initilize Application
 function init(){
     // Clear all history
     list.innerHTML = '';
     // Display all transection in DB in the DOM
-    transection.forEach(displayTransection);
+    transections.forEach(displayTransection);
     updateBalance();
 };
 
@@ -91,7 +93,7 @@ function addTransection(e) {
             amount: +amount.value
         }
         // Push the new transection in to the transection array
-        transection.push(transectioon); 
+        transections.push(transectioon); 
         //Dispaly the new transection in to the DOM
         displayTransection(transectioon);
         // Update all Balance
@@ -100,7 +102,17 @@ function addTransection(e) {
         reason.value = '';
         amount.value = '';
     }
-}
+};
+
+function deleteData(id) {
+    // filter out the transection with the provided id
+    transections = transections.filter( transection => transection.id !== id);
+    // inisilize the app by update the DOM
+    init();
+     
+};
+
+
 
 // Event listrners
 // 1. listen for form submit to add a transection
