@@ -1,6 +1,130 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
 
+*{
+    box-sizing: border-box;
+}
+
 
 body{
+    background-color: rgb(194, 232, 247);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    flex-direction: column;
     font-family: 'Merriweather', serif;
+    
+
 }
+
+.container{
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    padding: 20px;
+    margin: 100px,0;
+    position: relative;
+    z-index: 10px;
+}
+
+.album-art{
+   position: relative;
+    width: 150px;
+}
+.album-art img{
+    border-radius: 50%;
+    bottom: 0;
+    left: 0;
+    object-fit: cover;
+    height: 150px;
+    width: 150px;
+    position:absolute;
+    animation:  rotate 2.5s linear infinite;
+    animation-play-state: paused;
+
+}
+
+.container.play img{
+    animation-play-state: running;
+}
+
+@keyframes rotate {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+
+}
+
+.nav-btn{
+    position:relative;
+    background-color: white;
+    border: 0;
+    color: gray;
+    padding: 10px;
+    margin: 0 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.nav-btn-large{
+    font-size: 25px;
+}
+
+.info{
+    background-color: gray;
+    border-radius: 10px;
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    width: calc(100% - 40px);
+    padding: 10px 10px 10px 150px;
+    transform: translateY(0%);
+    transition: transform 1s ease-in , opacity 1s ease-in;
+    opacity: 0;
+    z-index: 0;
+    color: white;
+}
+
+.container.play .info{
+    opacity: 1;
+    transform: translateY(-100%);
+}
+
+.info h4{
+    margin: 0;
+    text-align: center;
+}
+
+.progress{
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+    height: 5px;
+    width: 100%;
+}
+
+.progress-bar{
+    background-color: rgb(13, 121, 163);
+    border-radius: 5px;
+    height: 100%;
+    width: 50px;
+    transition: width 0.1s linear;
+
+}
+
+h1 {
+    margin-bottom: 150px;
+}
+
