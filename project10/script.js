@@ -7,6 +7,7 @@ const albumArt = document.getElementById('album-art');
 const previousBtn = document.getElementById('previous');
 const playBtn = document.getElementById('play');
 const nextBtn = document.getElementById('next');
+const progressBar = document.getElementById('progrsee-bar');
 
 
 function addPlay() {
@@ -87,6 +88,21 @@ function nextTrack(){
 };
 
 
+// finction to update the progress bar
+function updateProgress(e){
+    //destructure the total time and duration
+    const {duration, currentTime } = e.srcElement
+    // calculate the percentage of overall played using currentTime and duration
+    const progressPercent = currentTime / duration * 100;
+    // reasign progress bar of progress precentage
+    progressBar.style.width = `${progressPercent}%`
+}
+
+// Function to set the progress bar
+function setProgress (){
+    
+}
+
 
 // Event Listners
 // 1. Listen for click on the play button
@@ -111,4 +127,8 @@ previousBtn.addEventListener('click', prevTrack);
 nextBtn.addEventListener('click',nextTrack);
 
 
+audio.addEventListener('timeupdate',updateProgress);
 
+
+// 5. listen on click on progress bar
+progress.addEventListener('click', setProgress);
