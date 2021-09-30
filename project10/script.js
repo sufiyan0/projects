@@ -10,9 +10,7 @@ const nextBtn = document.getElementById('next');
 const progressBar = document.getElementById('progrsee-bar');
 
 
-function addPlay() {
-    container.classList.add('play')
-}
+
 
 
 // Song Array
@@ -99,8 +97,16 @@ function updateProgress(e){
 }
 
 // Function to set the progress bar
-function setProgress (){
+function setProgress(e) {
+    // assign width of the track
+    const width = this.clientWidth;
+    // assogn the value of user where click
+    const clickLocation = e.offsetX;
+    // assign the total duration of the track
+    const duration = audio.duration
+    audio.currentTime = clickLocation / width * duration;
     
+
 }
 
 
@@ -132,3 +138,7 @@ audio.addEventListener('timeupdate',updateProgress);
 
 // 5. listen on click on progress bar
 progress.addEventListener('click', setProgress);
+
+
+// 6. play next track automatically when the current sond ended 
+audio.addEventListener('ended', nextTrack )
