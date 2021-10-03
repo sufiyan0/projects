@@ -67,6 +67,54 @@ body {
     font-weight: bold;
     display: flex;
 
-
 }
+
+
+.loader {
+    opacity: 0;
+    display: flex;
+    position: fixed;
+    bottom: 50px;
+    transition: opacity 0.5s ease-in;
+    
+    
+}
+
+.loader.show {
+    opacity: 1;
+}
+
+.circle {
+    background-color: white;
+    border: 3.5px solid black;
+    height: 15px;
+    width: 15px;
+    margin: 5px;
+    border-radius: 50%;
+    animation: bounce 0.5s ease-in infinite;
+}
+
+
+
+
+@keyframes bounce {
+    0%,
+    50% {
+        transform: translateY(-10px)
+    }
+    100%{
+        transform: translateY(0px)
+    }
+    
+}
+
+.circle:nth-of-type(2) {
+    animation-delay: .25s;
+}
+
+.circle:nth-of-type(3) {
+    animation-delay: .10s;
+}
+
+
 
