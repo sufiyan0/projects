@@ -44,5 +44,55 @@ async function renderPosts() {
 };
 
 
+// Function to show loader Animation
+function showLoader() {
+    loader.classList.add('show');
+    // Increment the page variable by 1
+    page++;
+    // Rande the post from the page new page 
+    renderPosts();
+    // Remove the loader
+    loader.classList.remove('show');
+};
+
+function filterPost(e) {
+    // save the input text as a filter keyword
+    const filterKeryword = e.target.value.toLowerCase();
+    // get all post data from DOM
+    const posts = document.querySelectorAll('.post');
+    // Process all posts in the posts node list
+    posts.forEach( post => {
+        // Get the title text
+        const title = post.querySelector('.post-title').innerText;
+        // Get the body text
+        const body = post.querySelector('.post-body').innerText;
+        // Check if filterKeyword exists in title or body
+        if ( title.indexOf(filterKeryword) >= 0 || body.indexOf(filterKeryword) >= 0) {
+            post.style.display = 'flex';
+        }else {
+            post.style.display = 'none';
+        }
+
+    })
+
+};
+
+
+
+// Event listner
+// listen to scroll in browser windows
+window.addEventListener('scroll', () => {
+    // Destructing Properties from DOM
+    const { scrollTop, scrollHeight, clientHeight} = document.documentElement;
+    // check if scroll to bottom of page
+    if(scrollTop + clientHeight >= scrollHeight - 0.01) {
+        // Display the loader animation
+       showLoader();
+        
+    }
+}); 
+
+// listen to the input for filter post
+filter.addEventListener('input', filterPost);
 
 renderPosts();
