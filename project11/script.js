@@ -1,7 +1,8 @@
-// Get DOM Element
-const loader = document.getElementById('loader');
-const filter = document.getElementById('filter-container');
+// Get  elements from DOM 
 const newsFeed = document.getElementById('news-feed');
+const filter = document.getElementById('filter');
+const loader = document.getElementById('loader');
+
 
 // Create a global element for Api Update
 let limit = 5;
