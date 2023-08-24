@@ -87,7 +87,8 @@ function displayMealDetails(meal) {
 
         <h2> Ingredients </h2>
         <ul>
-            ${ingredients.map( ingredient => `<li> ${ingredient} </li>` ).join(' ') }
+            ${ingredients.map( (ingredient) => 
+                ( `<li> ${ingredient} </li>` ).join(' ')) }
         </ul>
 
         <h2> Instructions for Cooking </h2>
